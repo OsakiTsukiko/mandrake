@@ -5,7 +5,8 @@
 	"folders": {
 		"Characters": {
 			"files": [
-
+				"character-1675507869.json",
+				"character-1675520063.json"
 			],
 			"folders": {
 
@@ -29,7 +30,8 @@
 		},
 		"Themes": {
 			"files": [
-				"default-theme.cfg"
+				"default-theme.cfg",
+				"theme-1675508029.cfg"
 			],
 			"folders": {
 
@@ -41,7 +43,7 @@
 		},
 		"Timelines": {
 			"files": [
-
+				"timeline-1675508099.json"
 			],
 			"folders": {
 

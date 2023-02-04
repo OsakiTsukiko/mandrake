@@ -1,0 +1,68 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 1,
+			"animation_wait": false,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1675507869.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": true,
+			"portrait": "cry_2",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1675520063.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1675507869.json",
+			"event_id": "dialogic_001",
+			"portrait": "(Don't change)",
+			"text": "Mm... E-excuse m-me!"
+		},
+		{
+			"character": "character-1675520063.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hello, little one!"
+		},
+		{
+			"character": "character-1675520063.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "What brings you to such a [color=#fbc33d][wave amp=50 freq=2]dangerous[/wave][/color] place?"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1675508099.json",
+		"name": "starting_dialogue"
+	}
+}

@@ -1,0 +1,41 @@
+{
+	"color": "#ff5dffab",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1675507869.json",
+	"mirror_portraits": false,
+	"name": "Mandrake",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": -50,
+	"offset_y": -50,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://assets/mandrake/dialogue/base.png"
+		},
+		{
+			"name": "normal",
+			"path": "res://assets/mandrake/dialogue/normal.png"
+		},
+		{
+			"name": "cry_1",
+			"path": "res://assets/mandrake/dialogue/cry_1.png"
+		},
+		{
+			"name": "cry_2",
+			"path": "res://assets/mandrake/dialogue/cry_2.png"
+		},
+		{
+			"name": "cry_3",
+			"path": "res://assets/mandrake/dialogue/cry_3.png"
+		},
+		{
+			"name": "cry_4",
+			"path": "res://assets/mandrake/dialogue/cry_4.png"
+		}
+	],
+	"scale": 400,
+	"theme": "theme-1675508029.cfg"
+}
