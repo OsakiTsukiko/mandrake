@@ -42,6 +42,12 @@
 			"z_index": 0
 		},
 		{
+			"condition": "",
+			"definition": "1675536644-787",
+			"event_id": "dialogic_012",
+			"value": "True"
+		},
+		{
 			"character": "character-1675507869.json",
 			"event_id": "dialogic_001",
 			"portrait": "(Don't change)",
@@ -58,11 +64,29 @@
 			"event_id": "dialogic_001",
 			"portrait": "",
 			"text": "What brings you to such a [color=#fbc33d][wave amp=50 freq=2]dangerous[/wave][/color] place?"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1675536644-787",
+			"event_id": "dialogic_012",
+			"value": "False"
+		},
+		{
+			"character": "character-1675520063.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "..."
+		},
+		{
+			"event_id": "dialogic_013"
 		}
 	],
 	"metadata": {
 		"dialogic-version": "1.4.5",
 		"file": "timeline-1675508099.json",
-		"name": "starting_dialogue"
+		"name": "starting_dialogue_01"
 	}
 }
