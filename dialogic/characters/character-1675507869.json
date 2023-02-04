@@ -34,6 +34,10 @@
 		{
 			"name": "cry_4",
 			"path": "res://assets/mandrake/dialogue/cry_4.png"
+		},
+		{
+			"name": "cry_5",
+			"path": "res://assets/mandrake/dialogue/cry_5.png"
 		}
 	],
 	"scale": 400,

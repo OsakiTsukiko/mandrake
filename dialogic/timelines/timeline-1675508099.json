@@ -66,6 +66,75 @@
 			"text": "What brings you to such a [color=#fbc33d][wave amp=50 freq=2]dangerous[/wave][/color] place?"
 		},
 		{
+			"character": "character-1675507869.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Mhm.. I-I think I got l-lost T-T I don't, I don't r-remem-mber w-what happened!"
+		},
+		{
+			"character": "character-1675520063.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Oh dear! What an awful thing to happen.. And to such a little thing as you!"
+		},
+		{
+			"character": "character-1675520063.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "This.. is [color=#fbc33d][wave amp=50 freq=2]The Dungeon[/wave][/color]! A place where only [color=#fbc33d][wave amp=50 freq=2]evil[/wave][/color] dwells!"
+		},
+		{
+			"character": "character-1675520063.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "A place filled with ruthless [color=#cd5c5c][shake rate=10 level=10]MONSTERS[/shake][/color]!"
+		},
+		{
+			"character": "character-1675507869.json",
+			"event_id": "dialogic_001",
+			"portrait": "cry_5",
+			"text": "[color=#cd5c5c][shake rate=10 level=10]MONSTERS[/shake][/color] ?!?! T-T"
+		},
+		{
+			"animation": "[No Animation]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_position": false,
+			"change_z_index": false,
+			"character": "character-1675507869.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "cry_4",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 2,
+			"z_index": 0
+		},
+		{
+			"character": "character-1675520063.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Yes indeed.. The deeper you venture into the dungeon, the stronger the monsters become!"
+		},
+		{
+			"character": "character-1675507869.json",
+			"event_id": "dialogic_001",
+			"portrait": "(Don't change)",
+			"text": "*sniffle* .. I-Is there a-any w-way of getting o-out of here? T-T"
+		},
+		{
+			"character": "character-1675520063.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": ".. The legend says, that on the [color=#fbc33d]DEEPEST[/color] floor of the dungeon, there is a [color=#fbc33d]GATE[/color]! .. But none have made it that far."
+		},
+		{
 			"event_id": "dialogic_013"
 		},
 		{
