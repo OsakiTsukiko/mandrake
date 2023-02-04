@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/main.png-afcea04815aa7e5f132af4a2074efe07.stex"
+path="res://.import/main.png-aed2badddbc10d1a39fc527fd11c1994.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/workbench/mandrake/main.png"
-dest_files=[ "res://.import/main.png-afcea04815aa7e5f132af4a2074efe07.stex" ]
+source_file="res://assets/mandrake/pixelart/main.png"
+dest_files=[ "res://.import/main.png-aed2badddbc10d1a39fc527fd11c1994.stex" ]
 
 [params]
 
