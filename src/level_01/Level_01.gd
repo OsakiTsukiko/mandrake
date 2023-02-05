@@ -1,5 +1,15 @@
 extends Node2D
 
+"""
+This approach might be a bit weird
+I dont instance Player for each level,
+I build it baked into the level..
+This might be a bit bad for large scale
+stuff.. in this case is fine + im too lazy
+to modify everything to work with that..
+So this will have to do for now.
+"""
+
 onready var player = $Player
 onready var action_key_popup = $Player/ActionKeyPopup
 
@@ -15,8 +25,12 @@ var coord: Vector2 = Vector2.ZERO
 var not_occupied: bool = true
 
 func _ready() -> void:
-	coord = Utils.pos_to_coords(player.global_position)
-	changed_pos = player.global_position
+	teleport_player_at(Vector2(1, 21))
+
+func teleport_player_at(pos: Vector2) -> void:
+	player.global_position = pos * 16
+	coord = pos
+	changed_pos = pos * 16
 
 func _physics_process(delta) -> void:
 	action_key_popup.visible = false
