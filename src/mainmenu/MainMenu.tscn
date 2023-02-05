@@ -1,0 +1,94 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/fonts/press_start_2p.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/mandrake/banner/banner.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/monocraft.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://src/mainmenu/MainMenu.gd" type="Script" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.168627, 0.14902, 0.137255, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 46
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+extra_spacing_top = 10
+extra_spacing_bottom = 10
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.431373, 1, 0.666667, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.333333, 0.784314, 0.517647, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 3 )
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="Banner" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+
+[node name="Title" type="RichTextLabel" parent="."]
+margin_left = 27.0
+margin_top = 198.0
+margin_right = 404.0
+margin_bottom = 339.0
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "
+[center][wave amp=25 freq=2][color=#6effaa]Mandrake[/color][/wave][/center]
+"
+text = "
+Mandrake
+"
+fit_content_height = true
+
+[node name="StartBTN" type="Button" parent="."]
+margin_left = 27.0
+margin_top = 303.0
+margin_right = 251.0
+margin_bottom = 355.0
+mouse_default_cursor_shape = 2
+custom_colors/font_color_focus = Color( 0.14902, 0.211765, 0.176471, 1 )
+custom_colors/font_color = Color( 0.14902, 0.211765, 0.176471, 1 )
+custom_colors/font_color_hover = Color( 0.14902, 0.211765, 0.176471, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 5 )
+text = " Start "
+
+[node name="Authors" type="Label" parent="."]
+margin_left = 14.0
+margin_top = 569.0
+margin_right = 300.0
+margin_bottom = 586.0
+custom_colors/font_color = Color( 0.431373, 1, 0.666667, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "by OsakiTsukiko & serb2331"
+
+[connection signal="pressed" from="StartBTN" to="." method="_on_StartBTN_pressed"]
