@@ -23,6 +23,8 @@ func _physics_process(delta) -> void:
 					Gamestate.state.first_time_dwarf = false
 				add_child(dialogue)
 				dialogue.connect("timeline_end", self, "_end_dialogue", [dialogue])
+		if (action == Utils.ACTIONS_ENUM.PROGRESS_TO_NEXT_LEVEL):
+			Gamestate.load_level(2)
 
 func _end_dialogue(timeline_name: String, node: Node):
 	node.queue_free()
