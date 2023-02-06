@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/main_01.png-407c780c6d3694f67e418d9510b6f020.stex"
+path="res://.import/main_01.png-d7f6496e06ea0476ee0db5a180b4a7f5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/mushroom_devil/combat/main_01.png"
-dest_files=[ "res://.import/main_01.png-407c780c6d3694f67e418d9510b6f020.stex" ]
+source_file="res://assets/mushroom_satan/combat/main_01.png"
+dest_files=[ "res://.import/main_01.png-d7f6496e06ea0476ee0db5a180b4a7f5.stex" ]
 
 [params]
 
