@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/main_01.png-8e5c920e3f21ca35e61e2b133f856928.stex"
+path="res://.import/main_01.png-919510475710ebe560f83bc4067353c2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/mushy/pixelart/main_01.png"
-dest_files=[ "res://.import/main_01.png-8e5c920e3f21ca35e61e2b133f856928.stex" ]
+source_file="res://assets/mushy/battle/main_01.png"
+dest_files=[ "res://.import/main_01.png-919510475710ebe560f83bc4067353c2.stex" ]
 
 [params]
 
