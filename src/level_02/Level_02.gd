@@ -2,13 +2,13 @@ extends Node2D
 
 onready var player = $Player
 
-onready var transition = $Player/CircleTransition
+onready var transition_screen = $CanvasLayer/TransitionScreen
 
 onready var collision_tilemap = $CollisionTileMap
 onready var action_tilemap = $ActionTileMap
 
 func _ready() -> void:
-	transition.play_open_animation()
+	transition_screen.play_open_animation()
 	player.teleport(Vector2(6, 15))
 
 func _physics_process(delta) -> void:

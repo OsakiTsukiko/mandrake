@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/levels/main.png" type="Texture" id=1]
 [ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/levels/actions.png" type="Texture" id=3]
-[ext_resource path="res://src/transition/transition.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/transition_screen/TransitionScreen.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/level_02/Level_02.gd" type="Script" id=5]
 
 [sub_resource type="TileSet" id=1]
@@ -241,8 +241,6 @@ tile_data = PoolIntArray( -65521, 6, 0, 13, 6, 0, 14, 6, 0, 15, 6, 0, 17, 6, 0, 
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 
-[node name="CircleTransition" parent="Player" instance=ExtResource( 4 )]
-margin_left = -248.0
-margin_top = -159.0
-margin_right = 264.0
-margin_bottom = 141.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TransitionScreen" parent="CanvasLayer" instance=ExtResource( 4 )]

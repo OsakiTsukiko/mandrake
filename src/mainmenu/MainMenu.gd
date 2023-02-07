@@ -1,15 +1,14 @@
 extends Control
 
-onready var transition = $CircleTransition
-
-func _on_StartBTN_pressed():
-	transition.play_close_animation()
+onready var transition_screen = $TransitionScreen
 
 func _ready():
-	transition.connect("animation_close_done", self, "_animation_close_done")
-	transition.play_open_animation()
+	transition_screen.connect("animation_close_done", self, "_animation_close_done")
+	transition_screen.play_open_animation()
 	pass
 
+func _on_StartBTN_pressed():
+	transition_screen.play_close_animation()
 
 func _animation_close_done():
 	Gamestate.load_game()

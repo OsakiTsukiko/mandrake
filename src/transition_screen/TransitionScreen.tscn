@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://src/transition/transition.gd" type="Script" id=1]
+[ext_resource path="res://src/transition_screen/TransitionScreen.gd" type="Script" id=1]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -67,18 +67,16 @@ tracks/0/keys = {
 "values": [ 0.0, 1.05 ]
 }
 
-[node name="CircleTransition" type="ColorRect"]
+[node name="TransitionScreen" type="ColorRect"]
 material = SubResource( 2 )
 margin_right = 1024.0
 margin_bottom = 600.0
-color = Color( 0.0235294, 0.0235294, 0.0235294, 1 )
+color = Color( 0.0117647, 0.0117647, 0.0117647, 1 )
 script = ExtResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 3 )
 anims/transition_close_circle = SubResource( 4 )
 anims/transition_open_circle = SubResource( 5 )
-
-[node name="LoadTimer" type="Timer" parent="."]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]
