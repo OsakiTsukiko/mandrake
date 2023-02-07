@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/fonts/press_start_2p.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/mandrake/banner/banner.png" type="Texture" id=2]
 [ext_resource path="res://assets/fonts/monocraft.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://src/mainmenu/MainMenu.gd" type="Script" id=4]
+[ext_resource path="res://src/transition_screen/TransitionScreen.tscn" type="PackedScene" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.168627, 0.14902, 0.137255, 1 )
@@ -90,5 +91,7 @@ margin_bottom = 586.0
 custom_colors/font_color = Color( 0.431373, 1, 0.666667, 1 )
 custom_fonts/font = SubResource( 6 )
 text = "by OsakiTsukiko & serb2331"
+
+[node name="TransitionScreen" parent="." instance=ExtResource( 5 )]
 
 [connection signal="pressed" from="StartBTN" to="." method="_on_StartBTN_pressed"]

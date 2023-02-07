@@ -2,11 +2,14 @@ extends Node2D
 
 onready var player = $Player
 
+onready var transition_screen = $CanvasLayer/TransitionScreen
+
 onready var collision_tilemap = $CollisionTileMap
 onready var action_tilemap = $ActionTileMap
 
 func _ready() -> void:
 	Gamestate.connect("spawn_coords", self, "_spawn_coords")
+  transition_screen.play_open_animation()
 
 func _spawn_coords(coords: Vector2):
 	player.teleport(coords)
