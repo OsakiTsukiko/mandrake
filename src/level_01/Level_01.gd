@@ -6,7 +6,10 @@ onready var collision_tilemap = $CollisionTileMap
 onready var action_tilemap = $ActionTileMap
 
 func _ready() -> void:
-	player.teleport(Vector2(1, 21))
+	Gamestate.connect("spawn_coords", self, "_spawn_coords")
+
+func _spawn_coords(coords: Vector2):
+	player.teleport(coords)
 
 func _physics_process(delta) -> void:
 	player.hide_action_key_popup()
@@ -23,11 +26,14 @@ func _physics_process(delta) -> void:
 					Gamestate.state.first_time_dwarf = false
 				add_child(dialogue)
 				dialogue.connect("timeline_end", self, "_end_dialogue", [dialogue])
+		if (action == Utils.ACTIONS_ENUM.PROGRESS_TO_NEXT_LEVEL):
+			player.show_action_key_popup()
+			if (Input.is_action_just_pressed("action_key")):
+				player.not_occupied = false
+				Gamestate.load_level(2, Vector2(7, 15))
 
 func _player_moved(pos: Vector2):
 	var action: int = action_tilemap.get_cellv(Utils.pos_to_coords(pos))
-	if (action == Utils.ACTIONS_ENUM.PROGRESS_TO_NEXT_LEVEL):
-			Gamestate.load_level(2)
 
 func _end_dialogue(timeline_name: String, node: Node):
 	node.queue_free()
