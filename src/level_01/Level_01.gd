@@ -23,7 +23,10 @@ func _physics_process(delta) -> void:
 					Gamestate.state.first_time_dwarf = false
 				add_child(dialogue)
 				dialogue.connect("timeline_end", self, "_end_dialogue", [dialogue])
-		if (action == Utils.ACTIONS_ENUM.PROGRESS_TO_NEXT_LEVEL):
+
+func _player_moved(pos: Vector2):
+	var action: int = action_tilemap.get_cellv(Utils.pos_to_coords(pos))
+	if (action == Utils.ACTIONS_ENUM.PROGRESS_TO_NEXT_LEVEL):
 			Gamestate.load_level(2)
 
 func _end_dialogue(timeline_name: String, node: Node):
