@@ -10,8 +10,10 @@ onready var action_tilemap = $ActionTileMap
 func _ready() -> void:
 	transition.connect("animation_close_done", self, "_animation_close_done")
 	transition.play_open_animation()
-	player.teleport(Vector2(1, 21))
-	
+	Gamestate.connect("spawn_coords", self, "_spawn_coords")
+
+func _spawn_coords(coords: Vector2):
+	player.teleport(coords)
 
 func _physics_process(delta) -> void:
 	player.hide_action_key_popup()
@@ -29,12 +31,14 @@ func _physics_process(delta) -> void:
 					Gamestate.state.first_time_dwarf = false
 				add_child(dialogue)
 				dialogue.connect("timeline_end", self, "_end_dialogue", [dialogue])
+		if (action == Utils.ACTIONS_ENUM.PROGRESS_TO_NEXT_LEVEL):
+			player.show_action_key_popup()
+			if (Input.is_action_just_pressed("action_key")):
+				player.not_occupied = false
+				transition.play_close_animation()
 
 func _player_moved(pos: Vector2):
 	var action: int = action_tilemap.get_cellv(Utils.pos_to_coords(pos))
-	if (action == Utils.ACTIONS_ENUM.PROGRESS_TO_NEXT_LEVEL):
-			transition.play_close_animation()
-			
 
 func _end_dialogue(timeline_name: String, node: Node):
 	node.queue_free()
@@ -42,5 +46,5 @@ func _end_dialogue(timeline_name: String, node: Node):
 		player.not_occupied = true
 
 func _animation_close_done():
-	Gamestate.load_level(2)
+	Gamestate.load_level(2, Vector(7, 15))
 	pass

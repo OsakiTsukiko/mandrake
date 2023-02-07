@@ -12,5 +12,4 @@ func _ready():
 
 
 func _animation_close_done():
-	Gamestate.load_game()
-	pass
+	Gamestate.load_level(1, Vector2(0, 20))
