@@ -12,10 +12,13 @@ var coord: Vector2 = Vector2.ZERO
 
 var not_occupied: bool = true
 
+var last_changed_pos: Vector2 = Vector2.ZERO
+
 func teleport(pos: Vector2) -> void:
 	global_position = pos * 16
 	coord = pos
 	changed_pos = pos * 16
+	last_changed_pos = changed_pos
 
 func show_action_key_popup() -> void:
 	action_key_popup.visible = true
@@ -46,4 +49,11 @@ func _physics_process(delta) -> void:
 			changed_pos = coord * 16
 			
 		last_input_vector = input_vector
+	
+	if (last_changed_pos != changed_pos):
+		if (get_parent().has_method("_player_moved")):
+			get_parent()._player_moved(changed_pos)
+	
+	last_changed_pos = changed_pos
+	
 	global_position = lerp(global_position, changed_pos, delta * 20)

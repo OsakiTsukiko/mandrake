@@ -15,3 +15,5 @@ func _physics_process(delta) -> void:
 		var action: int = action_tilemap.get_cellv(player.coord)
 		pass
 	
+func _player_moved(pos: Vector2):
+	var action: int = action_tilemap.get_cellv(Utils.pos_to_coords(pos))
