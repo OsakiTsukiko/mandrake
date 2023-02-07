@@ -17,3 +17,5 @@ func _physics_process(delta) -> void:
 	
 func _player_moved(pos: Vector2):
 	var action: int = action_tilemap.get_cellv(Utils.pos_to_coords(pos))
+	if (action == 6):
+		print("[ PLAYER MOVED IN GRASS ]")
