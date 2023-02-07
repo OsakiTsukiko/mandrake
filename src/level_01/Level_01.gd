@@ -3,7 +3,6 @@ extends Node2D
 onready var player = $Player
 
 onready var transition = $Player/CircleTransition
-onready var load_timer = $Player/CircleTransition/LoadTimer
 
 onready var collision_tilemap = $CollisionTileMap
 onready var action_tilemap = $ActionTileMap
@@ -35,7 +34,6 @@ func _player_moved(pos: Vector2):
 	var action: int = action_tilemap.get_cellv(Utils.pos_to_coords(pos))
 	if (action == Utils.ACTIONS_ENUM.PROGRESS_TO_NEXT_LEVEL):
 			transition.play_close_animation()
-			load_timer.start(1.0)
 			
 
 func _end_dialogue(timeline_name: String, node: Node):
