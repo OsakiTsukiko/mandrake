@@ -244,3 +244,4 @@ tile_data = PoolIntArray( -65521, 6, 0, 13, 6, 0, 14, 6, 0, 15, 6, 0, 17, 6, 0, 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TransitionScreen" parent="CanvasLayer" instance=ExtResource( 4 )]
+color = Color( 0.0117647, 0.0117647, 0.0117647, 1 )

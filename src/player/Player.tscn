@@ -44,7 +44,7 @@ script = ExtResource( 3 )
 
 [node name="ActionKeyPopup" type="Sprite" parent="."]
 visible = false
-position = Vector2( 0, -18 )
+position = Vector2( 0, -16 )
 texture = ExtResource( 1 )
 centered = false
 
@@ -55,8 +55,7 @@ anims/wave = SubResource( 6 )
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 8, -9 )
 current = true
-zoom = Vector2( 0.5, 0.5 )
+zoom = Vector2( 0.25, 0.25 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D"]
-autoplay = "zoom_in_start"
 anims/zoom_in_start = SubResource( 4 )
