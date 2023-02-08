@@ -32,7 +32,7 @@ func get_on_screen_ratio() -> Vector2:
 	
 	player_position_in_vieport.y = screen_size.y / 2 - camera_position.y + player_size.x / 2
 	player_position_in_vieport.x = screen_size.x / 2 - camera_position.x + player_size.y / 2
-	print(player_position_in_vieport)
+	
 	return Vector2(player_position_in_vieport.x / screen_size.x, player_position_in_vieport.y / screen_size.y)
 
 func show_action_key_popup() -> void:
@@ -42,8 +42,6 @@ func hide_action_key_popup() -> void:
 	action_key_popup.visible = false
 
 func _physics_process(delta) -> void:
-	
-	print(get_on_screen_ratio())
 	
 	var input_vector: Vector2 = Vector2(
 		int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left")),
