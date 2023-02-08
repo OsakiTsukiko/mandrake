@@ -9,10 +9,12 @@ render_mode unshaded;
 uniform float circle_size : hint_range(0.0, 1.05);
 uniform float screen_width = 1024;
 uniform float screen_height = 600;
+uniform float circle_centre_x : hint_range(0.0, 1.0);
+uniform float circle_centre_y : hint_range(0.0, 1.0);
  
 void fragment() {
 	float ratio = screen_width / screen_height;
-	float dist = distance(vec2(0.5, 0.5), vec2(mix(0.5, UV.x, ratio), UV.y));
+	float dist = distance(vec2(circle_centre_x, circle_centre_y), vec2(mix(0.5, UV.x, ratio), UV.y));
 	COLOR.a = step(circle_size, dist);
 }"
 
@@ -21,6 +23,8 @@ shader = SubResource( 6 )
 shader_param/circle_size = 0.0
 shader_param/screen_width = 1024.0
 shader_param/screen_height = 600.0
+shader_param/circle_centre_x = 0.5
+shader_param/circle_centre_y = 0.5
 
 [sub_resource type="Animation" id=8]
 length = 0.001
@@ -54,6 +58,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=5]
 resource_name = "transition_open_circle"
+length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:material:shader_param/circle_size")
 tracks/0/interp = 1
@@ -61,7 +66,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 1.05 ]
