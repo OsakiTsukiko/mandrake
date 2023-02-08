@@ -24,16 +24,16 @@ func teleport(pos: Vector2) -> void:
 func get_on_screen_ratio() -> Vector2:
 	var screen_size: Vector2 = get_viewport_rect().size
 	var camera_position: Vector2 = camera.position
-	var player_position_in_vieport = Vector2.ZERO
-	var player_size = get_rect().size
-	
+	var player_position_in_vieport: Vector2 = Vector2.ZERO
+	var player_size: Vector2 = get_rect().size
+		
 	screen_size.x *= camera.zoom.x
 	screen_size.y *= camera.zoom.y
 	
 	player_position_in_vieport.y = screen_size.y / 2 - camera_position.y + player_size.x / 2
 	player_position_in_vieport.x = screen_size.x / 2 - camera_position.x + player_size.y / 2
 	
-	return Vector2(player_position_in_vieport.x / screen_size.x, player_position_in_vieport.y / screen_size.y)
+	return player_position_in_vieport / screen_size
 
 func show_action_key_popup() -> void:
 	action_key_popup.visible = true
@@ -42,7 +42,6 @@ func hide_action_key_popup() -> void:
 	action_key_popup.visible = false
 
 func _physics_process(delta) -> void:
-	
 	var input_vector: Vector2 = Vector2(
 		int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left")),
 		int(Input.is_action_pressed("move_down")) - int(Input.is_action_pressed("move_up"))
