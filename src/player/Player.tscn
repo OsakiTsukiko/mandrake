@@ -55,7 +55,8 @@ anims/wave = SubResource( 6 )
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 8, -9 )
 current = true
-zoom = Vector2( 0.25, 0.25 )
+zoom = Vector2( 0.5, 0.5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D"]
+autoplay = "zoom_in_start"
 anims/zoom_in_start = SubResource( 4 )
