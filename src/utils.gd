@@ -64,3 +64,29 @@ class Mob:
 			scale
 		)
 		return copy
+
+class Attack:
+	var affects: int
+	var mana: int
+	var health: int
+	var mana_required: int
+	var unlocked: bool
+	
+	func _init(
+		affects: int,
+		mana: int,
+		health: int,
+		mana_required: int,
+		unlocked: bool
+		):
+		self.affects = affects
+		self.mana = mana
+		self.health = health
+		self.mana_required = mana_required
+		self.unlocked = unlocked
+	
+	func unlock(lock: bool = false):
+		if (lock):
+			unlocked = false
+		else:
+			unlocked = true
