@@ -14,7 +14,7 @@ func _ready() -> void:
 	Gamestate.connect("spawn_coords", self, "_spawn_coords")
 	transition_screen.connect("animation_close_done", self, "_animation_close_done")
 	transition_screen.connect("animation_open_done", self, "_animation_open_done")
-	transition_screen.play_open_animation()
+	transition_screen.play_open_animation(player.get_on_screen_ratio())
 	player.not_occupied = false
 	arena = AssetManager.arenas[level_id]
 
@@ -30,7 +30,7 @@ func _physics_process(delta) -> void:
 			player.show_action_key_popup()
 			if (Input.is_action_just_pressed("action_key")):
 				player.not_occupied = false
-				transition_screen.play_close_animation(["REGRESS_TO_PREVIOUS_LEVEL", 0, Vector2(43, 22)])
+				transition_screen.play_close_animation(player.get_on_screen_ratio(), ["REGRESS_TO_PREVIOUS_LEVEL", 0, Vector2(43, 22)])
 	
 func _player_moved(pos: Vector2):
 	var action: int = action_tilemap.get_cellv(Utils.pos_to_coords(pos))

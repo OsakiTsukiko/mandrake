@@ -8,14 +8,18 @@ signal animation_open_done
 var params_oa: Array
 var params_ca: Array
 
-func play_open_animation(params: Array = []) -> void:
+func play_open_animation(pos_ratio: Vector2, params: Array = []) -> void:
 	params_oa = params
 	visible = true
+	material.set_shader_param("circle_centre_x", pos_ratio.x)
+	material.set_shader_param("circle_centre_y", pos_ratio.y)
 	animation_player.play("transition_open_circle")
 
-func play_close_animation(params: Array = []) -> void:
+func play_close_animation(pos_ratio: Vector2, params: Array = []) -> void:
 	params_ca = params
 	visible = true
+	material.set_shader_param("circle_centre_x", pos_ratio.x)
+	material.set_shader_param("circle_centre_y", pos_ratio.y)
 	animation_player.play("transition_close_circle")
 
 func _on_animation_finished(animation_name) -> void:
