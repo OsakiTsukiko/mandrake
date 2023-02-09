@@ -99,6 +99,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Gamestate="*res://src/gamestate.gd"
+AssetManager="*res://src/asset_manager.gd"
 
 [display]
 
