@@ -1,0 +1,83 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/fonts/press_start_2p.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[node name="SkillMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.870588, 0.882353, 0.713726, 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1014.0
+margin_bottom = 590.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_right = 1004.0
+margin_bottom = 16.0
+custom_constants/separation = 20
+
+[node name="Padding" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 620.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+
+[node name="SP_Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 640.0
+margin_right = 704.0
+margin_bottom = 16.0
+hint_tooltip = "Skill Points"
+mouse_filter = 0
+mouse_default_cursor_shape = 16
+custom_colors/font_color = Color( 0.2, 0.34902, 0.294118, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "0 SP"
+
+[node name="MAX_DEF_Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 724.0
+margin_right = 836.0
+margin_bottom = 16.0
+hint_tooltip = "Max Defense"
+mouse_filter = 0
+mouse_default_cursor_shape = 16
+custom_colors/font_color = Color( 0.145098, 0.439216, 0.596078, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "0 MX DF"
+
+[node name="MR_Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 856.0
+margin_right = 920.0
+margin_bottom = 16.0
+hint_tooltip = "Mana Rate"
+mouse_filter = 0
+mouse_default_cursor_shape = 16
+custom_colors/font_color = Color( 0.596078, 0.309804, 0.611765, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "1 MR"
+
+[node name="HP_Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 940.0
+margin_right = 1004.0
+margin_bottom = 16.0
+hint_tooltip = "Health Points"
+mouse_filter = 0
+mouse_default_cursor_shape = 16
+custom_colors/font_color = Color( 0.772549, 0.219608, 0.192157, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "0 HP"
