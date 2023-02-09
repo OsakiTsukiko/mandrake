@@ -1,4 +1,7 @@
 extends Control
 
-func _on_StartBTN_pressed():
-	Gamestate.load_level(1, Vector2(0, 20))
+func _ready() -> void:
+	randomize()
+
+func _on_StartBTN_pressed() -> void:
+	Gamestate.load_level(0, Vector2(0, 20))
