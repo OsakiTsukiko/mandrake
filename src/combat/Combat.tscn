@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/combat/ui/heart/frame.png" type="Texture" id=1]
+[ext_resource path="res://assets/combat/ui/heart/crystal.png" type="Texture" id=2]
+[ext_resource path="res://assets/combat/arenas/level_02/main.png" type="Texture" id=3]
+[ext_resource path="res://src/combat/Combat.gd" type="Script" id=4]
+[ext_resource path="res://assets/mandrake/combat/base.png" type="Texture" id=5]
+
+[node name="Combat" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Background" type="Sprite" parent="."]
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Mandrake" type="Sprite" parent="."]
+position = Vector2( 246, 533 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 5 )
+offset = Vector2( 0, -42 )
+
+[node name="Mob" type="Sprite" parent="."]
+position = Vector2( 808, 393 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Heart" type="Control" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -174.0
+margin_top = -157.0
+margin_right = -24.0
+margin_bottom = -7.0
+rect_min_size = Vector2( 150, 150 )
+
+[node name="Crystal" type="TextureRect" parent="CanvasLayer/Heart"]
+margin_right = 150.0
+margin_bottom = 150.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+
+[node name="Frame" type="TextureRect" parent="CanvasLayer/Heart"]
+margin_right = 150.0
+margin_bottom = 150.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
