@@ -66,22 +66,28 @@ class Mob:
 		return copy
 
 class Attack:
+	var name: String
 	var affects: int
-	var mana: int
-	var health: int
+	var mana: Vector2
+	var health: Vector2
+	var defense: Vector2
 	var mana_required: int
 	var unlocked: bool
 	
 	func _init(
+		name: String,
 		affects: int,
-		mana: int,
-		health: int,
+		mana: Vector2,
+		health: Vector2,
+		defense: Vector2,
 		mana_required: int,
 		unlocked: bool
 		):
+		self.name = name
 		self.affects = affects
 		self.mana = mana
 		self.health = health
+		self.defense = defense
 		self.mana_required = mana_required
 		self.unlocked = unlocked
 	
