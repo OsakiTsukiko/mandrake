@@ -18,6 +18,7 @@ func _ready() -> void:
 	transition_screen.play_open_animation(player.get_on_screen_ratio())
 	player.not_occupied = false
 	arena = AssetManager.arenas[level_id]
+	$CanvasModulate.show()
 	create_lights()
 
 func _spawn_coords(coords: Vector2):
@@ -61,7 +62,8 @@ func create_lights():
 				light.texture = Gamestate.light_texture
 				light.mode = Light2D.MODE_MIX
 				light.position = cell_coord * 16 + Vector2(8, 8)
-				light.texture_scale = 3
+				light.texture_scale = 5
+				light.shadow_enabled = true
 				light_node.add_child(light)
 
 func _animation_open_done(params: Array):
