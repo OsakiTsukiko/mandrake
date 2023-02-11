@@ -97,7 +97,7 @@ script = ExtResource( 4 )
 [node name="Background" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.870588, 0.882353, 0.713726, 1 )
+color = Color( 0, 0, 0, 0.745098 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -423,3 +423,4 @@ size_flags_vertical = 3
 [connection signal="pressed" from="MarginContainer/MarginContainer/HBoxContainer/CategoriesScroll/Categories/SSPGrid/MR_BTN" to="." method="_on_MR_BTN_pressed"]
 [connection signal="pressed" from="MarginContainer/MarginContainer/HBoxContainer/CategoriesScroll/Categories/SSPGrid/AK_BTN" to="." method="_on_AK_BTN_pressed"]
 [connection signal="pressed" from="MarginContainer/MarginContainer/HBoxContainer/CategoriesScroll/Categories/SSPGrid/DEF_BTN" to="." method="_on_DEF_BTN_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/QuitBTN" to="." method="_on_QuitBTN_pressed"]

@@ -31,8 +31,8 @@ class Mob:
 	var name: String
 	var texture: Resource
 	var health: int
-	var min_dmg: int
-	var max_dmg: int
+	var min_dmg: int # Could have just
+	var max_dmg: int # used a vector 
 	var size: int
 	var scale: Vector2
 	
@@ -82,7 +82,7 @@ class Attack:
 		defense: Vector2,
 		mana_required: int,
 		unlocked: bool
-		):
+		) -> void:
 		self.name = name
 		self.target = target
 		self.mana = mana
@@ -91,7 +91,7 @@ class Attack:
 		self.mana_required = mana_required
 		self.unlocked = unlocked
 	
-	func unlock(lock: bool = false):
+	func unlock(lock: bool = false) -> void:
 		if (lock):
 			unlocked = false
 		else:

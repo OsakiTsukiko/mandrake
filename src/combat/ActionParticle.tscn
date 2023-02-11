@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/fonts/press_start_2p.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://src/combat/ActionParticle.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="ViewportTexture" id=2]
+viewport_path = NodePath("Viewport")
+
+[node name="ActionParticle" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 128, 128 )
+transparent_bg = true
+hdr = false
+disable_3d = true
+usage = 0
+render_target_v_flip = true
+
+[node name="DMG" type="Label" parent="Viewport"]
+visible = false
+margin_right = 128.0
+margin_bottom = 128.0
+custom_colors/font_color = Color( 0.945098, 0.352941, 0.352941, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "DAMAGE"
+align = 1
+valign = 1
+
+[node name="DEF" type="Label" parent="Viewport"]
+visible = false
+margin_right = 128.0
+margin_bottom = 128.0
+custom_colors/font_color = Color( 0.294118, 0.568627, 0.952941, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "DEFENSE"
+align = 1
+valign = 1
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 1
+texture = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

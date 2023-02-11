@@ -8,11 +8,13 @@ var levels: Array = [
 ]
 
 var state: Dictionary = {
-	"first_time_dwarf": true
+	"first_time_dwarf": true,
+	"has_book": false
 }
 
 signal spawn_coords
 signal init_arena
+signal close_book_signal
 
 var last_level: int
 var last_coords: Vector2
@@ -27,8 +29,11 @@ func load_arena(
 	last_coords: Vector2,
 	mob_type: int, 
 	mob_id: int
-	):
+	) -> void:
 	self.last_level = level_id
 	self.last_coords = last_coords
 	get_tree().change_scene_to(combat_scene)
 	call_deferred("emit_signal", "init_arena", level_id, mob_type, mob_id)
+
+func close_book() -> void:
+	call_deferred("emit_signal", "close_book_signal")

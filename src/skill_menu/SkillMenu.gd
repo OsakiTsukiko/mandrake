@@ -72,19 +72,19 @@ func update_skills() -> void:
 		skill_cont.add_child(skill_node)
 
 
-func _on_HP_BTN_pressed():
+func _on_HP_BTN_pressed() -> void:
 	if (PlayerManager.sp.points > 0 && PlayerManager.hp.points < PlayerManager.hp.cap):
 		PlayerManager.sp.points -= 1
 		PlayerManager.hp.points += 1
 		update_stats()
 
-func _on_MR_BTN_pressed():
+func _on_MR_BTN_pressed() -> void:
 	if (PlayerManager.sp.points > 0 && PlayerManager.mr.points < PlayerManager.mr.cap):
 		PlayerManager.sp.points -= 1
 		PlayerManager.mr.points += 1
 		update_stats()
 
-func _on_AK_BTN_pressed():
+func _on_AK_BTN_pressed() -> void:
 	if (PlayerManager.sp.points > 0 && PlayerManager.ak.points < PlayerManager.ak.cap):
 		PlayerManager.sp.points -= 1
 		PlayerManager.ak.points += 1
@@ -97,7 +97,7 @@ func _on_AK_BTN_pressed():
 					break
 			update_skills()
 
-func _on_DEF_BTN_pressed():
+func _on_DEF_BTN_pressed() -> void:
 	if (PlayerManager.sp.points > 0 && PlayerManager.def.points < PlayerManager.def.cap):
 		PlayerManager.sp.points -= 1
 		PlayerManager.def.points += 1
@@ -109,3 +109,17 @@ func _on_DEF_BTN_pressed():
 					skill.unlock()
 					break
 			update_skills()
+
+var o = false
+func _process(delta) -> void:
+	if (self.visible && Input.is_action_just_pressed("open_book") && o):
+		_on_QuitBTN_pressed()
+	if (self.visible && Input.is_action_just_pressed("open_book")):
+		o = true
+
+func open() -> void:
+	o = false
+
+func _on_QuitBTN_pressed() -> void:
+	Gamestate.close_book()
+	self.visible = false

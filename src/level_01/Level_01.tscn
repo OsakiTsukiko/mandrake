@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/levels/actions.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://src/level_01/Level_01.gd" type="Script" id=4]
 [ext_resource path="res://assets/levels/main.png" type="Texture" id=5]
 [ext_resource path="res://assets/utils/controls_hint.png" type="Texture" id=6]
+[ext_resource path="res://src/hud/HUD.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/skill_menu/SkillMenu.tscn" type="PackedScene" id=8]
 
 [sub_resource type="TileSet" id=1]
 0/name = "ground.png 0"
@@ -284,12 +286,19 @@ tile_data = PoolIntArray( 1310738, 0, 0, 1310739, 0, 0, 1310740, 0, 0, 1310741, 
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="TransitionScreen" parent="CanvasLayer" instance=ExtResource( 3 )]
-visible = false
-
 [node name="ControlsHint" type="Sprite" parent="."]
 position = Vector2( -12, 290 )
 scale = Vector2( 0.220183, 0.220183 )
 texture = ExtResource( 6 )
+
+[node name="HUD" parent="." instance=ExtResource( 7 )]
+
+[node name="BOOK_CONT" type="CanvasLayer" parent="."]
+
+[node name="SkillMenu" parent="BOOK_CONT" instance=ExtResource( 8 )]
+visible = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TransitionScreen" parent="CanvasLayer" instance=ExtResource( 3 )]
+visible = false
