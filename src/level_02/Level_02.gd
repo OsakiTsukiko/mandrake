@@ -2,6 +2,9 @@ extends Node2D
 
 onready var player = $Player
 
+onready var light_node = $Lights
+onready var screen_color_overlay = $CanvasModulate
+
 onready var transition_screen = $CanvasLayer/TransitionScreen
 
 onready var collision_tilemap = $CollisionTileMap
@@ -18,7 +21,7 @@ func _ready() -> void:
 	transition_screen.play_open_animation(player.get_on_screen_ratio())
 	player.not_occupied = false
 	arena = AssetManager.arenas[level_id]
-	$CanvasModulate.show()
+	screen_color_overlay.show()
 	create_lights()
 
 func _spawn_coords(coords: Vector2):
@@ -51,7 +54,6 @@ func _player_moved(pos: Vector2):
 			 
 
 func create_lights():
-	var light_node = $Lights
 	var lightingtilemap_rect = lighting_tilemap.get_used_rect()
 	
 	for i in range(lightingtilemap_rect.size.x):

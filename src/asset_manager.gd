@@ -1,5 +1,7 @@
 extends Node
 
+var light_texture: Resource = preload("res://assets/lighting/lighting_texture_layered.png")
+
 var arenas = [
 	Utils.Arena.new(
 		"FILLER",

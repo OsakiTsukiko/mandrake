@@ -4,8 +4,6 @@ var combat_scene: Resource = load("res://src/combat/Combat.tscn")
 var settings_scene: Resource = load("res://src/settingsmenu/SettingsMenu.tscn")
 var main_menu_scene: Resource = load("res://src/mainmenu/MainMenu.tscn")
 
-var light_texture: Resource = preload("res://assets/lighting/lighting_texture_layered.png")
-
 var levels: Array = [
 	load("res://src/level_01/Level_01.tscn"),
 	load("res://src/level_02/Level_02.tscn")
