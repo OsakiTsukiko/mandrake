@@ -61,7 +61,7 @@ func create_lights():
 			var cell_coord = Vector2(i + lightingtilemap_rect.position.x, j + lightingtilemap_rect.position.y)
 			if (lighting_tilemap.get_cell(cell_coord.x, cell_coord.y) != -1):
 				var light = Light2D.new() 
-				light.texture = Gamestate.light_texture
+				light.texture = AssetManager.light_texture
 				light.mode = Light2D.MODE_MIX
 				light.position = cell_coord * 16 + Vector2(8, 8)
 				light.texture_scale = 5
