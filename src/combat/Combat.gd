@@ -151,7 +151,7 @@ func battle_loop_suffix() -> void:
 		yield(get_tree().create_timer(1), "timeout")
 		PlayerManager.health = health
 		PlayerManager.sp.points += 1
-		transition_screen.play_close_animation(["BACK_TO_LEVEL", Gamestate.last_level, Gamestate.last_coords])
+		transition_screen.play_close_animation(Vector2(0.5, 0.5), ["BACK_TO_LEVEL", Gamestate.last_level, Gamestate.last_coords])
 		return
 		
 	var c: int = randi() % (mob.max_dmg - mob.min_dmg)
@@ -183,7 +183,7 @@ func _on_mandrake_animation_finished(anim_name: String) -> void:
 			mandrake.visible = false
 			yield(get_tree().create_timer(1), "timeout")
 			PlayerManager.death_reset()
-			transition_screen.play_close_animation(["BACK_TO_START", 0, Vector2(18, 21)])
+			transition_screen.play_close_animation(Vector2(0.5, 0.5), ["BACK_TO_START", 0, Vector2(18, 21)])
 			return
 		update_stats()
 		battle_loop_prefix()
