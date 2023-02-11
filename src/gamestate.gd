@@ -1,6 +1,8 @@
 extends Node
 
 var combat_scene: Resource = load("res://src/combat/Combat.tscn")
+var settings_scene: Resource = load("res://src/settingsmenu/SettingsMenu.tscn")
+var main_menu_scene: Resource = load("res://src/mainmenu/MainMenu.tscn")
 
 var levels: Array = [
 	load("res://src/level_01/Level_01.tscn"),
@@ -37,3 +39,9 @@ func load_arena(
 
 func close_book() -> void:
 	call_deferred("emit_signal", "close_book_signal")
+
+func load_settings_menu():
+	get_tree().change_scene_to(settings_scene)
+
+func load_main_menu():
+	get_tree().change_scene_to(main_menu_scene)

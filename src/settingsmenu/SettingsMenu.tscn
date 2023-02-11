@@ -1,0 +1,181 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/fonts/monocraft.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/settings_menu/scroll_bar_theme.tres" type="Theme" id=2]
+[ext_resource path="res://assets/mushy/combat/main_02.png" type="Texture" id=3]
+[ext_resource path="res://assets/settings_menu/back.png" type="Texture" id=4]
+[ext_resource path="res://assets/fonts/press_start_2p.tres" type="DynamicFont" id=5]
+[ext_resource path="res://src/settingsmenu/SettingsMenu.gd" type="Script" id=6]
+[ext_resource path="res://assets/settings_menu/back_hover.png" type="Texture" id=7]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.941176, 1, 0.862745, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+content_margin_left = 20.0
+content_margin_right = 20.0
+content_margin_top = 20.0
+content_margin_bottom = 20.0
+bg_color = Color( 0.960784, 0.831373, 0.87451, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_color = Color( 0.313726, 0.239216, 0.262745, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+
+[sub_resource type="StyleBoxFlat" id=5]
+content_margin_left = 20.0
+content_margin_right = 20.0
+content_margin_top = 20.0
+content_margin_bottom = 20.0
+bg_color = Color( 0.694118, 0.45098, 0.52549, 1 )
+border_color = Color( 0.313726, 0.239216, 0.262745, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.313726, 0.239216, 0.262745, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 8.0
+expand_margin_right = 8.0
+expand_margin_top = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.960784, 0.831373, 0.87451, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="SettingsMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 35
+custom_constants/margin_top = 35
+custom_constants/margin_left = 35
+custom_constants/margin_bottom = 35
+
+[node name="TabContainer" type="TabContainer" parent="Panel/MarginContainer"]
+margin_left = 35.0
+margin_top = 35.0
+margin_right = 989.0
+margin_bottom = 565.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_bg = Color( 0.313726, 0.239216, 0.262745, 1 )
+custom_colors/font_color_fg = Color( 0.313726, 0.239216, 0.262745, 1 )
+custom_fonts/font = ExtResource( 5 )
+custom_styles/tab_fg = SubResource( 3 )
+custom_styles/tab_bg = SubResource( 5 )
+custom_styles/panel = SubResource( 4 )
+tab_align = 0
+
+[node name="Audio" type="Panel" parent="Panel/MarginContainer/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 64.0
+custom_styles/panel = SubResource( 2 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/TabContainer/Audio"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+
+[node name="GridContainer" type="GridContainer" parent="Panel/MarginContainer/TabContainer/Audio/MarginContainer"]
+margin_right = 914.0
+margin_bottom = 426.0
+columns = 2
+
+[node name="MusicLBL" type="Label" parent="Panel/MarginContainer/TabContainer/Audio/MarginContainer/GridContainer"]
+margin_right = 455.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.313726, 0.239216, 0.262745, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Music Volume"
+valign = 1
+
+[node name="MusicSLIDER" type="HSlider" parent="Panel/MarginContainer/TabContainer/Audio/MarginContainer/GridContainer"]
+margin_left = 459.0
+margin_right = 914.0
+margin_bottom = 25.0
+focus_mode = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource( 2 )
+
+[node name="SoundLBL" type="Label" parent="Panel/MarginContainer/TabContainer/Audio/MarginContainer/GridContainer"]
+margin_top = 29.0
+margin_right = 455.0
+margin_bottom = 54.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.313726, 0.239216, 0.262745, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Sound Effects Volume"
+valign = 1
+
+[node name="SoundSLIDER" type="HSlider" parent="Panel/MarginContainer/TabContainer/Audio/MarginContainer/GridContainer"]
+margin_left = 459.0
+margin_top = 29.0
+margin_right = 914.0
+margin_bottom = 54.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource( 2 )
+
+[node name="Credits" type="Panel" parent="Panel/MarginContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 49.0
+custom_styles/panel = SubResource( 2 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/TabContainer/Credits"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+
+[node name="GridContainer" type="GridContainer" parent="Panel/MarginContainer/TabContainer/Credits/MarginContainer"]
+margin_right = 914.0
+margin_bottom = 441.0
+columns = 2
+
+[node name="Banner" type="TextureRect" parent="."]
+margin_left = 818.0
+margin_top = 315.0
+margin_right = 1084.0
+margin_bottom = 598.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+
+[node name="BackButton" type="TextureButton" parent="."]
+margin_left = 954.0
+margin_top = 10.0
+margin_right = 1011.0
+margin_bottom = 65.0
+texture_normal = ExtResource( 4 )
+texture_hover = ExtResource( 7 )
+expand = true
+
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

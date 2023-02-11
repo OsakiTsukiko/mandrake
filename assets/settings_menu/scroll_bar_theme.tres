@@ -1,0 +1,23 @@
+[gd_resource type="Theme" load_steps=4 format=2]
+
+[ext_resource path="res://assets/settings_menu/grabber.png" type="Texture" id=1]
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.654902, 0.854902, 0.392157, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.313726, 0.239216, 0.262745, 1 )
+
+[sub_resource type="StyleBoxLine" id=8]
+color = Color( 0.313726, 0.239216, 0.262745, 1 )
+thickness = 8
+
+[resource]
+HSlider/icons/grabber = ExtResource( 1 )
+HSlider/icons/grabber_disabled = ExtResource( 1 )
+HSlider/icons/grabber_highlight = ExtResource( 1 )
+HSlider/styles/grabber_area = SubResource( 7 )
+HSlider/styles/grabber_area_highlight = SubResource( 7 )
+HSlider/styles/slider = SubResource( 8 )
