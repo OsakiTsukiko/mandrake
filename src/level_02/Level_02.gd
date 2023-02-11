@@ -2,10 +2,14 @@ extends Node2D
 
 onready var player = $Player
 
+onready var light_node = $Lights
+onready var screen_color_overlay = $CanvasModulate
+
 onready var transition_screen = $CanvasLayer/TransitionScreen
 
 onready var collision_tilemap = $CollisionTileMap
 onready var action_tilemap = $ActionTileMap
+onready var lighting_tilemap = $LightingTileMap
 
 var level_id = 1
 var arena: Utils.Arena
@@ -17,6 +21,8 @@ func _ready() -> void:
 	transition_screen.play_open_animation(player.get_on_screen_ratio())
 	player.not_occupied = false
 	arena = AssetManager.arenas[level_id]
+	screen_color_overlay.show()
+	create_lights()
 
 func _spawn_coords(coords: Vector2):
 	player.teleport(coords)
@@ -46,6 +52,21 @@ func _player_moved(pos: Vector2):
 				mob_id
 			)
 			 
+
+func create_lights():
+	var lightingtilemap_rect = lighting_tilemap.get_used_rect()
+	
+	for i in range(lightingtilemap_rect.size.x):
+		for j in range(lightingtilemap_rect.size.y):
+			var cell_coord = Vector2(i + lightingtilemap_rect.position.x, j + lightingtilemap_rect.position.y)
+			if (lighting_tilemap.get_cell(cell_coord.x, cell_coord.y) != -1):
+				var light = Light2D.new() 
+				light.texture = AssetManager.light_texture
+				light.mode = Light2D.MODE_MIX
+				light.position = cell_coord * 16 + Vector2(8, 8)
+				light.texture_scale = 5
+				light.shadow_enabled = true
+				light_node.add_child(light)
 
 func _animation_open_done(params: Array):
 	player.not_occupied = true

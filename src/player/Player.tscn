@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/utils/action_key_popup.png" type="Texture" id=1]
 [ext_resource path="res://assets/mandrake/pixelart/main.png" type="Texture" id=2]
 [ext_resource path="res://src/player/Player.gd" type="Script" id=3]
+[ext_resource path="res://assets/lighting/lighting_texture_layered.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=6]
 resource_name = "wave"
@@ -60,3 +61,9 @@ zoom = Vector2( 0.5, 0.5 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D"]
 autoplay = "zoom_in_start"
 anims/zoom_in_start = SubResource( 4 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 8, 8 )
+texture = ExtResource( 4 )
+texture_scale = 2.0
+mode = 2
