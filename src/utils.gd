@@ -67,7 +67,7 @@ class Mob:
 
 class Attack:
 	var name: String
-	var affects: int
+	var target: int
 	var mana: Vector2
 	var health: Vector2
 	var defense: Vector2
@@ -76,7 +76,7 @@ class Attack:
 	
 	func _init(
 		name: String,
-		affects: int,
+		target: int,
 		mana: Vector2,
 		health: Vector2,
 		defense: Vector2,
@@ -84,7 +84,7 @@ class Attack:
 		unlocked: bool
 		):
 		self.name = name
-		self.affects = affects
+		self.target = target
 		self.mana = mana
 		self.health = health
 		self.defense = defense

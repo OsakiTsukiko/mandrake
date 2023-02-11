@@ -1,8 +1,34 @@
 extends Node
 
-var base_health: int = 100
-var added_health: int = 0
-var health: int = base_health + added_health
+var health: int = 100
+
+var hp: Dictionary = {
+	"points": 2,
+	"cap": 20,
+	"multiply": 50
+}
+
+var mr: Dictionary = {
+	"points": 1,
+	"cap": 20
+}
+
+var def: Dictionary = {
+	"points": 0,
+	"cap": 20,
+	"multiply": 25
+}
+
+var ak: Dictionary = {
+	"points": 0,
+	"cap": 20
+}
+
+var sp: Dictionary = {
+	"points": 80
+}
+
+var points_
 
 var skills = {
 	"defense": [
@@ -20,8 +46,8 @@ var skills = {
 			0,
 			Vector2.ZERO,
 			Vector2.ZERO,
-			Vector2(25, 50),
-			0,
+			Vector2(25, 100),
+			10,
 			false
 		)
 	],
@@ -32,7 +58,7 @@ var skills = {
 			Vector2.ZERO,
 			Vector2(5, 20),
 			Vector2.ZERO,
-			2,
+			1,
 			true
 		),
 		Utils.Attack.new(
@@ -41,16 +67,16 @@ var skills = {
 			Vector2.ZERO,
 			Vector2(15, 50),
 			Vector2.ZERO,
-			4,
+			10,
 			false
 		),
 		Utils.Attack.new(
 			"Killer Scream",
 			1,
 			Vector2.ZERO,
-			Vector2(25, 150),
+			Vector2(75, 150),
 			Vector2.ZERO,
-			6,
+			30,
 			false
 		)
 	]
