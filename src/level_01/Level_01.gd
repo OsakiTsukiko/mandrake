@@ -28,7 +28,7 @@ func _physics_process(delta) -> void:
 	
 	if (player.not_occupied && action_tilemap.get_cellv(player.coord) != -1):
 		var action: int = action_tilemap.get_cellv(player.coord)
-		if (action == Utils.ACTIONS_ENUM.SPEAK_WITH_DWARF):
+		if (action == Utils.ACTIONS_ENUM.SPEAK_WITH_DWARF || action == Utils.ACTIONS_ENUM.HEAL_AND_SPEAK_WITH_DWARF):
 			player.show_action_key_popup()
 			if (Input.is_action_just_pressed("action_key") && is_able_to_talk):
 				is_able_to_talk = false
@@ -45,6 +45,8 @@ func _physics_process(delta) -> void:
 			if (Input.is_action_just_pressed("action_key")):
 				player.not_occupied = false
 				transition_screen.play_close_animation(player.get_on_screen_ratio(), ["PROGRESS_TO_NEXT_LEVEL", 1, Vector2(7, 15)])
+		if (action == Utils.ACTIONS_ENUM.HEAL || action == Utils.ACTIONS_ENUM.HEAL_AND_SPEAK_WITH_DWARF):
+			PlayerManager.health = PlayerManager.hp.points * PlayerManager.hp.multiply
 
 	if (player.not_occupied && Input.is_action_just_pressed("open_book") && Gamestate.state.has_book):
 		player.not_occupied = false

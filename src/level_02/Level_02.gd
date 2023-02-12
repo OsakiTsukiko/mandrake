@@ -24,7 +24,7 @@ func _ready() -> void:
 	transition_screen.play_open_animation(player.get_on_screen_ratio())
 	player.not_occupied = false
 	arena = AssetManager.arenas[level_id]
-	screen_color_overlay.show()
+	screen_color_overlay.visible = true
 	create_lights()
 
 func _spawn_coords(coords: Vector2):
@@ -40,6 +40,8 @@ func _physics_process(delta) -> void:
 			if (Input.is_action_just_pressed("action_key")):
 				player.not_occupied = false
 				transition_screen.play_close_animation(player.get_on_screen_ratio(), ["REGRESS_TO_PREVIOUS_LEVEL", 0, Vector2(43, 22)])
+		if (action == Utils.ACTIONS_ENUM.HEAL):
+			PlayerManager.health = PlayerManager.hp.points * PlayerManager.hp.multiply
 	
 	if (player.not_occupied && Input.is_action_just_pressed("open_book") && Gamestate.state.has_book):
 		player.not_occupied = false
