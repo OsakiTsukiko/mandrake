@@ -5,6 +5,11 @@ enum ACTIONS_ENUM {
 	SPEAK_WITH_DWARF = 0,
 	PROGRESS_TO_NEXT_LEVEL = 1,
 	REGRESS_TO_PREVIOUS_LEVEL = 2,
+	ENTER_BOSS_ROOM = 3,
+	HEAL = 4,
+	HEAL_AND_SPEAK_WITH_DWARF = 5,
+	GRASS = 6,
+	SIGN = 7,
 }
 
 static func pos_to_coords(pos: Vector2) -> Vector2:
@@ -31,8 +36,8 @@ class Mob:
 	var name: String
 	var texture: Resource
 	var health: int
-	var min_dmg: int
-	var max_dmg: int
+	var min_dmg: int # Could have just
+	var max_dmg: int # used a vector 
 	var size: int
 	var scale: Vector2
 	
@@ -64,3 +69,35 @@ class Mob:
 			scale
 		)
 		return copy
+
+class Attack:
+	var name: String
+	var target: int
+	var mana: Vector2
+	var health: Vector2
+	var defense: Vector2
+	var mana_required: int
+	var unlocked: bool
+	
+	func _init(
+		name: String,
+		target: int,
+		mana: Vector2,
+		health: Vector2,
+		defense: Vector2,
+		mana_required: int,
+		unlocked: bool
+		) -> void:
+		self.name = name
+		self.target = target
+		self.mana = mana
+		self.health = health
+		self.defense = defense
+		self.mana_required = mana_required
+		self.unlocked = unlocked
+	
+	func unlock(lock: bool = false) -> void:
+		if (lock):
+			unlocked = false
+		else:
+			unlocked = true

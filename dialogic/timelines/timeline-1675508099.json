@@ -1,6 +1,10 @@
 {
 	"events": [
 		{
+			"event_id": "dialogic_024",
+			"set_theme": "theme-1675508029.cfg"
+		},
+		{
 			"animation": "[Default]",
 			"animation_length": 1,
 			"animation_wait": false,
@@ -133,6 +137,54 @@
 			"event_id": "dialogic_001",
 			"portrait": "",
 			"text": ".. The legend says, that on the [color=#fbc33d]DEEPEST[/color] floor of the dungeon, there is a [color=#fbc33d]GATE[/color]! .. But none have made it that far."
+		},
+		{
+			"character": "character-1675507869.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": ".. T-T .."
+		},
+		{
+			"character": "character-1675520063.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "If you really wish to get out, you'll need this. Its a [color=#fbc33d]Magic Book[/color] that will allow you to fight monsters! This old dwarf no longer has any use for it.."
+		},
+		{
+			"character": "character-1675520063.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "But don't let your guard down just because of this book, there are monsters out there worse that you can ever imagine! I'm sure you'll die at least once.. he he!"
+		},
+		{
+			"character": "character-1675507869.json",
+			"event_id": "dialogic_001",
+			"portrait": "cry_5",
+			"text": "D-D-DIE?!?"
+		},
+		{
+			"character": "character-1675520063.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Oh, but don't worry! This dungeon puts a [color=#fbc33d]curse[/color] on everyone inside that won't let you rest not even in death! You'll always end up back again here!"
+		},
+		{
+			"character": "character-1675507869.json",
+			"event_id": "dialogic_001",
+			"portrait": "cry_2",
+			"text": "Ah! T-Thank You f-for everything!"
+		},
+		{
+			"character": "character-1675520063.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "No Worries! Just make sure to stay safe! It still hurts to die!"
+		},
+		{
+			"character": "character-1675520063.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Oh, always remember, you can heal your wounds at campfires! Take Care!"
 		},
 		{
 			"event_id": "dialogic_013"

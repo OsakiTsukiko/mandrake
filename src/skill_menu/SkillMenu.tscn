@@ -1,0 +1,426 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://assets/mandrake/dialogue/cry_5.png" type="Texture" id=1]
+[ext_resource path="res://assets/utils/skill_book.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/alagard.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://src/skill_menu/SkillMenu.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=2]
+size = 48
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 24
+outline_color = Color( 0.960784, 0.901961, 0.647059, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+bg_color = Color( 0.403922, 0.290196, 0.239216, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id=8]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+bg_color = Color( 0.27451, 0.203922, 0.172549, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id=10]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+bg_color = Color( 0.407843, 0.364706, 0.34902, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id=6]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+bg_color = Color( 0.498039, 0.356863, 0.290196, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="DynamicFont" id=11]
+size = 32
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[sub_resource type="StyleBoxEmpty" id=13]
+
+[sub_resource type="StyleBoxEmpty" id=14]
+
+[sub_resource type="StyleBoxEmpty" id=15]
+
+[sub_resource type="StyleBoxEmpty" id=16]
+
+[sub_resource type="StyleBoxEmpty" id=17]
+
+[sub_resource type="Theme" id=18]
+VScrollBar/styles/grabber = SubResource( 14 )
+VScrollBar/styles/grabber_highlight = SubResource( 15 )
+VScrollBar/styles/grabber_pressed = SubResource( 16 )
+VScrollBar/styles/scroll = SubResource( 17 )
+VScrollBar/styles/scroll_focus = null
+
+[node name="SkillMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.745098 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 1019.0
+margin_bottom = 595.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 1019.0
+margin_bottom = 595.0
+custom_constants/margin_right = 75
+custom_constants/margin_top = 60
+custom_constants/margin_left = 100
+custom_constants/margin_bottom = 60
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer"]
+margin_left = 100.0
+margin_top = 60.0
+margin_right = 939.0
+margin_bottom = 530.0
+custom_constants/separation = 100
+
+[node name="CategoriesScroll" type="ScrollContainer" parent="MarginContainer/MarginContainer/HBoxContainer"]
+margin_right = 369.0
+margin_bottom = 470.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Categories" type="VBoxContainer" parent="MarginContainer/MarginContainer/HBoxContainer/CategoriesScroll"]
+margin_right = 369.0
+margin_bottom = 470.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="STitle" type="Label" parent="MarginContainer/MarginContainer/HBoxContainer/CategoriesScroll/Categories"]
+margin_right = 369.0
+margin_bottom = 45.0
+custom_colors/font_color = Color( 0.333333, 0.227451, 0.176471, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Stats"
+align = 1
+valign = 1
+
+[node name="SGrid" type="GridContainer" parent="MarginContainer/MarginContainer/HBoxContainer/CategoriesScroll/Categories"]
+margin_top = 49.0
+margin_right = 369.0
+margin_bottom = 180.0
+rect_pivot_offset = Vector2( -225, 42 )
+columns = 2
+
+[node name="HP_Label" type="Label" parent="MarginContainer/MarginContainer/HBoxContainer/CategoriesScroll/Categories/SGrid"]
+margin_right = 183.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.498039, 0.356863, 0.290196, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Max Health:"
+
+[node name="HP_Value" type="Label" parent="MarginContainer/MarginContainer/HBoxContainer/CategoriesScroll/Categories/SGrid"]
+margin_left = 187.0
+margin_right = 369.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.498039, 0.356863, 0.290196, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+
+[node name="DEF_Label" type="Label" parent="MarginContainer/MarginContainer/HBoxContainer/CategoriesScroll/Categories/SGrid"]
+margin_top = 27.0
+margin_right = 183.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.498039, 0.356863, 0.290196, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Max Defense:"
+
+[node name="DEF_Value" type="Label" parent="MarginContainer/MarginContainer/HBoxContainer/CategoriesScroll/Categories/SGrid"]
+margin_left = 187.0
+margin_top = 27.0
+margin_right = 369.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.498039, 0.356863, 0.290196, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+
+[node name="AK_Label" type="Label" parent="MarginContainer/MarginContainer/HBoxContainer/CategoriesScroll/Categories/SGrid"]
+margin_top = 54.0
+margin_right = 183.0
+margin_bottom = 77.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.498039, 0.356863, 0.290196, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Attack Points:"
+
+[node name="AK_Value" type="Label" parent="MarginContainer/MarginContainer/HBoxContainer/CategoriesScroll/Categories/SGrid"]
+margin_left = 187.0
+margin_top = 54.0
+margin_right = 369.0
+margin_bottom = 77.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.498039, 0.356863, 0.290196, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+
+[node name="MR_Label" type="Label" parent="MarginContainer/MarginContainer/HBoxContainer/CategoriesScroll/Categories/SGrid"]
+margin_top = 81.0
+margin_right = 183.0
+margin_bottom = 104.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.498039, 0.356863, 0.290196, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Mana Rate:"
+
+[node name="MR_Value" type="Label" parent="MarginContainer/MarginContainer/HBoxContainer/CategoriesScroll/Categories/SGrid"]
+margin_left = 187.0
+margin_top = 81.0
+margin_right = 369.0
+margin_bottom = 104.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.498039, 0.356863, 0.290196, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+
+[node name="SP_Label" type="Label" parent="MarginContainer/MarginContainer/HBoxContainer/CategoriesScroll/Categories/SGrid"]
+margin_top = 108.0
+margin_right = 183.0
+margin_bottom = 131.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.498039, 0.356863, 0.290196, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Skill Points:"
+
+[node name="SP_Value" type="Label" parent="MarginContainer/MarginContainer/HBoxContainer/CategoriesScroll/Categories/SGrid"]
+margin_left = 187.0
+margin_top = 108.0
+margin_right = 369.0
+margin_bottom = 131.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.498039, 0.356863, 0.290196, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+
+[node name="SSPTitle" type="Label" parent="MarginContainer/MarginContainer/HBoxContainer/CategoriesScroll/Categories"]
+margin_top = 184.0
+margin_right = 369.0
+margin_bottom = 214.0
+custom_colors/font_color = Color( 0.333333, 0.227451, 0.176471, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Spend Skill Points"
+valign = 1
+
+[node name="SSPGrid" type="GridContainer" parent="MarginContainer/MarginContainer/HBoxContainer/CategoriesScroll/Categories"]
+margin_top = 218.0
+margin_right = 369.0
+margin_bottom = 288.0
+columns = 2
+
+[node name="HP_BTN" type="Button" parent="MarginContainer/MarginContainer/HBoxContainer/CategoriesScroll/Categories/SSPGrid"]
+margin_right = 183.0
+margin_bottom = 33.0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+custom_colors/font_color_disabled = Color( 0.666667, 0.658824, 0.619608, 1 )
+custom_colors/font_color_focus = Color( 0.960784, 0.901961, 0.647059, 1 )
+custom_colors/font_color = Color( 0.960784, 0.901961, 0.647059, 1 )
+custom_colors/font_color_hover = Color( 0.960784, 0.901961, 0.647059, 1 )
+custom_colors/font_color_pressed = Color( 0.960784, 0.901961, 0.647059, 1 )
+custom_fonts/font = SubResource( 5 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/normal = SubResource( 6 )
+text = "Health"
+
+[node name="MR_BTN" type="Button" parent="MarginContainer/MarginContainer/HBoxContainer/CategoriesScroll/Categories/SSPGrid"]
+margin_left = 187.0
+margin_right = 369.0
+margin_bottom = 33.0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+custom_colors/font_color_disabled = Color( 0.666667, 0.658824, 0.619608, 1 )
+custom_colors/font_color_focus = Color( 0.960784, 0.901961, 0.647059, 1 )
+custom_colors/font_color = Color( 0.960784, 0.901961, 0.647059, 1 )
+custom_colors/font_color_hover = Color( 0.960784, 0.901961, 0.647059, 1 )
+custom_colors/font_color_pressed = Color( 0.960784, 0.901961, 0.647059, 1 )
+custom_fonts/font = SubResource( 5 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/normal = SubResource( 6 )
+text = "Mana Rate"
+
+[node name="AK_BTN" type="Button" parent="MarginContainer/MarginContainer/HBoxContainer/CategoriesScroll/Categories/SSPGrid"]
+margin_top = 37.0
+margin_right = 183.0
+margin_bottom = 70.0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+custom_colors/font_color_disabled = Color( 0.666667, 0.658824, 0.619608, 1 )
+custom_colors/font_color_focus = Color( 0.960784, 0.901961, 0.647059, 1 )
+custom_colors/font_color = Color( 0.960784, 0.901961, 0.647059, 1 )
+custom_colors/font_color_hover = Color( 0.960784, 0.901961, 0.647059, 1 )
+custom_colors/font_color_pressed = Color( 0.960784, 0.901961, 0.647059, 1 )
+custom_fonts/font = SubResource( 5 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/normal = SubResource( 6 )
+text = "Attack"
+
+[node name="DEF_BTN" type="Button" parent="MarginContainer/MarginContainer/HBoxContainer/CategoriesScroll/Categories/SSPGrid"]
+margin_left = 187.0
+margin_top = 37.0
+margin_right = 369.0
+margin_bottom = 70.0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+custom_colors/font_color_disabled = Color( 0.666667, 0.658824, 0.619608, 1 )
+custom_colors/font_color_focus = Color( 0.960784, 0.901961, 0.647059, 1 )
+custom_colors/font_color = Color( 0.960784, 0.901961, 0.647059, 1 )
+custom_colors/font_color_hover = Color( 0.960784, 0.901961, 0.647059, 1 )
+custom_colors/font_color_pressed = Color( 0.960784, 0.901961, 0.647059, 1 )
+custom_fonts/font = SubResource( 5 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/normal = SubResource( 6 )
+text = "Defense"
+
+[node name="Padding01" type="Control" parent="MarginContainer/MarginContainer/HBoxContainer/CategoriesScroll/Categories"]
+margin_top = 292.0
+margin_right = 369.0
+margin_bottom = 332.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer/HBoxContainer/CategoriesScroll/Categories"]
+visible = false
+margin_top = 309.0
+margin_right = 369.0
+margin_bottom = 470.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer/HBoxContainer"]
+margin_left = 469.0
+margin_right = 839.0
+margin_bottom = 470.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_right = 370.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+
+[node name="STitle" type="Label" parent="MarginContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_right = 326.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.333333, 0.227451, 0.176471, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Skills"
+align = 1
+valign = 1
+
+[node name="QuitBTN" type="Button" parent="MarginContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 330.0
+margin_right = 370.0
+margin_bottom = 45.0
+mouse_default_cursor_shape = 2
+custom_colors/font_color_focus = Color( 0.333333, 0.227451, 0.176471, 1 )
+custom_colors/font_color = Color( 0.333333, 0.227451, 0.176471, 1 )
+custom_colors/font_color_hover = Color( 0.505882, 0.356863, 0.282353, 1 )
+custom_colors/font_color_pressed = Color( 0.196078, 0.137255, 0.109804, 1 )
+custom_fonts/font = SubResource( 11 )
+custom_styles/hover = SubResource( 12 )
+custom_styles/pressed = SubResource( 12 )
+custom_styles/focus = SubResource( 13 )
+custom_styles/disabled = SubResource( 12 )
+custom_styles/normal = SubResource( 12 )
+text = "[q]"
+
+[node name="SkillsScroll" type="ScrollContainer" parent="MarginContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 49.0
+margin_right = 370.0
+margin_bottom = 470.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource( 18 )
+
+[node name="Skills" type="VBoxContainer" parent="MarginContainer/MarginContainer/HBoxContainer/VBoxContainer/SkillsScroll"]
+margin_right = 370.0
+margin_bottom = 421.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="pressed" from="MarginContainer/MarginContainer/HBoxContainer/CategoriesScroll/Categories/SSPGrid/HP_BTN" to="." method="_on_HP_BTN_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/HBoxContainer/CategoriesScroll/Categories/SSPGrid/MR_BTN" to="." method="_on_MR_BTN_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/HBoxContainer/CategoriesScroll/Categories/SSPGrid/AK_BTN" to="." method="_on_AK_BTN_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/HBoxContainer/CategoriesScroll/Categories/SSPGrid/DEF_BTN" to="." method="_on_DEF_BTN_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/QuitBTN" to="." method="_on_QuitBTN_pressed"]
