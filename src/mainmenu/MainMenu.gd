@@ -22,7 +22,9 @@ func _on_OptionsBTN_pressed():
 	Gamestate.load_settings_menu()
 
 func _on_ContinueBTN_pressed():
+	SoundManager.play_menu_click()
 	if (PlayerManager.last_level == 0):
 		Gamestate.load_level(0, Vector2(18, 21))
 	if (PlayerManager.last_level == 1):
 		Gamestate.load_level(1, Vector2(32, 29))
+	SoundManager.main_menu_bg.stop()
