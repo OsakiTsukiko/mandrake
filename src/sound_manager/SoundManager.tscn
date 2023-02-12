@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/sounds/menu_click.wav" type="AudioStream" id=1]
+[ext_resource path="res://src/sound_manager/SoundManager.gd" type="Script" id=2]
+[ext_resource path="res://assets/sounds/the_field_of_dreams.mp3" type="AudioStream" id=3]
+[ext_resource path="res://assets/sounds/Soliloquy.mp3" type="AudioStream" id=4]
+[ext_resource path="res://assets/sounds/old_city_theme.ogg" type="AudioStream" id=5]
+
+[node name="SoundManager" type="Node"]
+script = ExtResource( 2 )
+
+[node name="MenuClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+bus = "Sfx"
+
+[node name="MainMenuBG" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "Music"
+
+[node name="Level1BG" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="Level2BG" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+bus = "Music"

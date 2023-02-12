@@ -18,6 +18,7 @@ thickness = 8
 HSlider/icons/grabber = ExtResource( 1 )
 HSlider/icons/grabber_disabled = ExtResource( 1 )
 HSlider/icons/grabber_highlight = ExtResource( 1 )
+HSlider/icons/tick = null
 HSlider/styles/grabber_area = SubResource( 7 )
 HSlider/styles/grabber_area_highlight = SubResource( 7 )
 HSlider/styles/slider = SubResource( 8 )
