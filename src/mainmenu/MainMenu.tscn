@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/fonts/press_start_2p.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/mandrake/banner/banner.png" type="Texture" id=2]
@@ -27,6 +27,13 @@ corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.333333, 0.784314, 0.517647, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.2, 0.25098, 0.219608, 1 )
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -83,11 +90,30 @@ custom_styles/focus = SubResource( 5 )
 custom_styles/normal = SubResource( 5 )
 text = "Start"
 
-[node name="OptionsBTN" type="Button" parent="."]
+[node name="ContinueBTN" type="Button" parent="."]
 margin_left = 27.0
 margin_top = 365.0
-margin_right = 251.0
+margin_right = 327.0
 margin_bottom = 417.0
+rect_min_size = Vector2( 300, 0 )
+mouse_default_cursor_shape = 2
+custom_colors/font_color_disabled = Color( 0.101961, 0.113725, 0.101961, 1 )
+custom_colors/font_color_focus = Color( 0.14902, 0.211765, 0.176471, 1 )
+custom_colors/font_color = Color( 0.14902, 0.211765, 0.176471, 1 )
+custom_colors/font_color_hover = Color( 0.14902, 0.211765, 0.176471, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 5 )
+disabled = true
+text = "Continue"
+
+[node name="OptionsBTN" type="Button" parent="."]
+margin_left = 27.0
+margin_top = 427.0
+margin_right = 327.0
+margin_bottom = 479.0
 rect_min_size = Vector2( 300, 0 )
 mouse_default_cursor_shape = 2
 custom_colors/font_color_focus = Color( 0.14902, 0.211765, 0.176471, 1 )
@@ -109,4 +135,5 @@ custom_fonts/font = SubResource( 6 )
 text = "by OsakiTsukiko & serb2331"
 
 [connection signal="pressed" from="StartBTN" to="." method="_on_StartBTN_pressed"]
+[connection signal="pressed" from="ContinueBTN" to="." method="_on_ContinueBTN_pressed"]
 [connection signal="pressed" from="OptionsBTN" to="." method="_on_OptionsBTN_pressed"]
