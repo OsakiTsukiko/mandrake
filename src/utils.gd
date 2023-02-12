@@ -7,6 +7,8 @@ enum ACTIONS_ENUM {
 	REGRESS_TO_PREVIOUS_LEVEL = 2,
 	HEAL = 4,
 	HEAL_AND_SPEAK_WITH_DWARF = 5,
+	GRASS = 6,
+	SIGN = 7,
 }
 
 static func pos_to_coords(pos: Vector2) -> Vector2:

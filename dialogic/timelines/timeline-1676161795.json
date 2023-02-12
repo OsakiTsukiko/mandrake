@@ -1,0 +1,19 @@
+{
+	"events": [
+		{
+			"event_id": "dialogic_024",
+			"set_theme": "theme-1675508029.cfg"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You whom challanges the dungeon, be wary of the monsters hiding in the [color=#f9bfe2]grass[/color]!"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1676161795.json",
+		"name": "lvl_2_sign"
+	}
+}

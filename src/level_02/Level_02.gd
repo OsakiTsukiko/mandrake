@@ -30,11 +30,22 @@ func _ready() -> void:
 func _spawn_coords(coords: Vector2):
 	player.teleport(coords)
 
+var is_able_to_talk = true
 func _physics_process(delta) -> void:
 	player.hide_action_key_popup()
 	
 	if (player.not_occupied && action_tilemap.get_cellv(player.coord) != -1):
 		var action: int = action_tilemap.get_cellv(player.coord)
+		if (action == Utils.ACTIONS_ENUM.SIGN):
+			player.show_action_key_popup()
+			if (Input.is_action_just_pressed("action_key") && is_able_to_talk):
+				is_able_to_talk = false
+				player.not_occupied = false
+				var dialogue = Dialogic.start("lvl_2_sign")
+				add_child(dialogue)
+				dialogue.connect("timeline_end", self, "_end_dialogue", [dialogue])
+			elif (Input.is_action_just_pressed("action_key")):
+				is_able_to_talk = true
 		if (action == Utils.ACTIONS_ENUM.REGRESS_TO_PREVIOUS_LEVEL):
 			player.show_action_key_popup()
 			if (Input.is_action_just_pressed("action_key")):
@@ -50,7 +61,7 @@ func _physics_process(delta) -> void:
 	
 func _player_moved(pos: Vector2) -> void:
 	var action: int = action_tilemap.get_cellv(Utils.pos_to_coords(pos))
-	if (action == 6):
+	if (action == Utils.ACTIONS_ENUM.GRASS):
 		var rand = randi()
 		if (rand % 3 == 0):
 			var mob_rand = randi()
@@ -61,6 +72,11 @@ func _player_moved(pos: Vector2) -> void:
 				0,
 				mob_id
 			)
+
+func _end_dialogue(timeline_name: String, node: Node):
+	node.queue_free()
+	if (timeline_name == "lvl_2_sign"):
+		player.not_occupied = true
 
 func create_lights() -> void:
 	var lightingtilemap_rect = lighting_tilemap.get_used_rect()
