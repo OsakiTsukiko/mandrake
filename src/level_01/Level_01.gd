@@ -79,9 +79,11 @@ func _end_dialogue(timeline_name: String, node: Node):
 
 func _animation_open_done(params: Array) -> void:
 	player.not_occupied = true
+	SoundManager.play_level_music(0)
 
 func _animation_close_done(params: Array):
 	if (params[0] == "PROGRESS_TO_NEXT_LEVEL"):
+		SoundManager.stop_level_music(0)
 		Gamestate.load_level(params[1], params[2])
 
 func _close_book_signal() -> void:

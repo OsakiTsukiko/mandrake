@@ -96,11 +96,16 @@ boot_splash/use_filter=false
 boot_splash/bg_color=Color( 0.0235294, 0.0235294, 0.0235294, 1 )
 config/icon="res://icon.png"
 
+[audio]
+
+default_bus_layout="res://src/sound_manager/default_bus_layout.tres"
+
 [autoload]
 
 PlayerManager="*res://src/player_manager.gd"
 Gamestate="*res://src/gamestate.gd"
 AssetManager="*res://src/asset_manager.gd"
+SoundManager="*res://src/sound_manager/SoundManager.tscn"
 
 [display]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/fonts/monocraft.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/settings_menu/scroll_bar_theme.tres" type="Theme" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://assets/fonts/press_start_2p.tres" type="DynamicFont" id=5]
 [ext_resource path="res://src/settingsmenu/SettingsMenu.gd" type="Script" id=6]
 [ext_resource path="res://assets/settings_menu/back_hover.png" type="Texture" id=7]
+[ext_resource path="res://assets/settings_menu/checkbox_checked.png" type="Texture" id=8]
+[ext_resource path="res://assets/settings_menu/checkbox_unchecked.png" type="Texture" id=9]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.941176, 1, 0.862745, 1 )
@@ -51,6 +53,10 @@ corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
+
+[sub_resource type="Theme" id=6]
+CheckBox/icons/checked = ExtResource( 8 )
+CheckBox/icons/unchecked = ExtResource( 9 )
 
 [node name="SettingsMenu" type="Control"]
 anchor_right = 1.0
@@ -101,11 +107,12 @@ margin_bottom = -20.0
 [node name="GridContainer" type="GridContainer" parent="Panel/MarginContainer/TabContainer/Audio/MarginContainer"]
 margin_right = 914.0
 margin_bottom = 426.0
-columns = 2
+columns = 3
 
 [node name="MusicLBL" type="Label" parent="Panel/MarginContainer/TabContainer/Audio/MarginContainer/GridContainer"]
-margin_right = 455.0
-margin_bottom = 25.0
+margin_top = 7.0
+margin_right = 433.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0.313726, 0.239216, 0.262745, 1 )
 custom_fonts/font = ExtResource( 1 )
@@ -113,18 +120,32 @@ text = "Music Volume"
 valign = 1
 
 [node name="MusicSLIDER" type="HSlider" parent="Panel/MarginContainer/TabContainer/Audio/MarginContainer/GridContainer"]
-margin_left = 459.0
-margin_right = 914.0
-margin_bottom = 25.0
+margin_left = 437.0
+margin_right = 870.0
+margin_bottom = 40.0
 focus_mode = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme = ExtResource( 2 )
+min_value = -16.0
+max_value = 6.0
+value = 6.0
+
+[node name="MusicCHX" type="CheckBox" parent="Panel/MarginContainer/TabContainer/Audio/MarginContainer/GridContainer"]
+margin_left = 874.0
+margin_right = 914.0
+margin_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = SubResource( 6 )
+pressed = true
+enabled_focus_mode = 0
 
 [node name="SoundLBL" type="Label" parent="Panel/MarginContainer/TabContainer/Audio/MarginContainer/GridContainer"]
-margin_top = 29.0
-margin_right = 455.0
-margin_bottom = 54.0
+margin_top = 51.0
+margin_right = 433.0
+margin_bottom = 76.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0.313726, 0.239216, 0.262745, 1 )
 custom_fonts/font = ExtResource( 1 )
@@ -132,13 +153,26 @@ text = "Sound Effects Volume"
 valign = 1
 
 [node name="SoundSLIDER" type="HSlider" parent="Panel/MarginContainer/TabContainer/Audio/MarginContainer/GridContainer"]
-margin_left = 459.0
-margin_top = 29.0
-margin_right = 914.0
-margin_bottom = 54.0
+margin_left = 437.0
+margin_top = 44.0
+margin_right = 870.0
+margin_bottom = 84.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme = ExtResource( 2 )
+min_value = -16.0
+max_value = 6.0
+value = 6.0
+
+[node name="SoundCHX" type="CheckBox" parent="Panel/MarginContainer/TabContainer/Audio/MarginContainer/GridContainer"]
+margin_left = 874.0
+margin_top = 44.0
+margin_right = 914.0
+margin_bottom = 84.0
+focus_mode = 0
+theme = SubResource( 6 )
+pressed = true
+enabled_focus_mode = 0
 
 [node name="Credits" type="Panel" parent="Panel/MarginContainer/TabContainer"]
 visible = false
@@ -178,4 +212,9 @@ texture_normal = ExtResource( 4 )
 texture_hover = ExtResource( 7 )
 expand = true
 
+[connection signal="tab_changed" from="Panel/MarginContainer/TabContainer" to="." method="_on_tab_changed"]
+[connection signal="drag_ended" from="Panel/MarginContainer/TabContainer/Audio/MarginContainer/GridContainer/MusicSLIDER" to="." method="_on_MusicSLIDER_drag_ended"]
+[connection signal="pressed" from="Panel/MarginContainer/TabContainer/Audio/MarginContainer/GridContainer/MusicCHX" to="." method="_on_MusicCHX_pressed"]
+[connection signal="drag_ended" from="Panel/MarginContainer/TabContainer/Audio/MarginContainer/GridContainer/SoundSLIDER" to="." method="_on_SoundSLIDER_drag_ended"]
+[connection signal="pressed" from="Panel/MarginContainer/TabContainer/Audio/MarginContainer/GridContainer/SoundCHX" to="." method="_on_SoundCHX_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
