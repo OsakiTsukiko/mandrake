@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/utils/square.png" type="Texture" id=1]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0.146758, 0.392491, 0.590444, 0.846416 )
+colors = PoolColorArray( 1, 0.753472, 0.840142, 1, 1, 0.461806, 0.487033, 1, 0.949219, 0.533369, 0.388916, 1, 0.996094, 0.895793, 0.895793, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+min_value = 0.99
+_data = [ Vector2( 0.0122699, 0.333333 ), 0.0, 0.0, 0, 0, Vector2( 0.966258, 0.358333 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+lifetime_randomness = 1.0
+trail_divisor = 10
+emission_shape = 2
+emission_box_extents = Vector3( 8, 8, 8 )
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 0.0
+gravity = Vector3( 0, -5, 0 )
+initial_velocity = 0.1
+angular_velocity = 50.3
+angular_velocity_random = 0.48
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 5.0
+linear_accel_random = 0.55
+tangential_accel = 9.41
+tangential_accel_random = 1.0
+scale = 2.0
+scale_random = 1.0
+scale_curve = SubResource( 4 )
+color_initial_ramp = SubResource( 2 )
+anim_offset = 0.08
+anim_offset_random = 1.0
+
+[node name="GrassParticles" type="Particles2D"]
+amount = 3
+lifetime = 3.0
+speed_scale = 0.2
+randomness = 1.0
+process_material = SubResource( 5 )
+texture = ExtResource( 1 )

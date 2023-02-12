@@ -14,6 +14,10 @@ var state: Dictionary = {
 	"has_book": false
 }
 
+var settings = {
+	"particles": false
+}
+
 signal spawn_coords
 signal init_arena
 signal close_book_signal
