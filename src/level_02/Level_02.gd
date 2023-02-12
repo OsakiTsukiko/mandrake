@@ -26,6 +26,7 @@ func _ready() -> void:
 	arena = AssetManager.arenas[level_id]
 	screen_color_overlay.visible = true
 	create_lights()
+	PlayerManager.last_level = 1
 
 func _spawn_coords(coords: Vector2):
 	player.teleport(coords)

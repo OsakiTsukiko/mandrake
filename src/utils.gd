@@ -15,6 +15,23 @@ enum ACTIONS_ENUM {
 static func pos_to_coords(pos: Vector2) -> Vector2:
 	return Vector2(floor(pos.x / 16), floor(pos.y / 16))
 
+static func save(data, file_name: String) -> void:
+	var f := File.new()
+	f.open("user://" + file_name + ".save", File.WRITE)
+	f.store_buffer(var2bytes(data))
+	f.close()
+
+static func load_save(file_name: String):
+	var f := File.new()
+	if f.file_exists("user://" + file_name + ".save"):
+		f.open("user://" + file_name + ".save", File.READ)
+		var s = bytes2var(f.get_buffer(f.get_len()))
+		f.close()
+		return s
+	else:
+		f.close()
+		return null
+
 class Arena: 
 	var name: String
 	var background: Resource

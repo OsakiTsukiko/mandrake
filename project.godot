@@ -98,9 +98,9 @@ config/icon="res://icon.png"
 
 [autoload]
 
+PlayerManager="*res://src/player_manager.gd"
 Gamestate="*res://src/gamestate.gd"
 AssetManager="*res://src/asset_manager.gd"
-PlayerManager="*res://src/player_manager.gd"
 
 [display]
 

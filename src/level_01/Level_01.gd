@@ -18,6 +18,7 @@ func _ready() -> void:
 	transition_screen.connect("animation_open_done", self, "_animation_open_done")
 	transition_screen.play_open_animation(player.get_on_screen_ratio())
 	player.not_occupied = false
+	PlayerManager.last_level = 0
 
 func _spawn_coords(coords: Vector2):
 	player.teleport(coords)

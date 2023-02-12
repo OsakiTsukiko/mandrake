@@ -72,6 +72,7 @@ margin_left = 27.0
 margin_top = 303.0
 margin_right = 251.0
 margin_bottom = 355.0
+rect_min_size = Vector2( 300, 0 )
 mouse_default_cursor_shape = 2
 custom_colors/font_color_focus = Color( 0.14902, 0.211765, 0.176471, 1 )
 custom_colors/font_color = Color( 0.14902, 0.211765, 0.176471, 1 )
@@ -80,13 +81,14 @@ custom_fonts/font = SubResource( 3 )
 custom_styles/hover = SubResource( 4 )
 custom_styles/focus = SubResource( 5 )
 custom_styles/normal = SubResource( 5 )
-text = "  Start  "
+text = "Start"
 
 [node name="OptionsBTN" type="Button" parent="."]
 margin_left = 27.0
 margin_top = 365.0
 margin_right = 251.0
 margin_bottom = 417.0
+rect_min_size = Vector2( 300, 0 )
 mouse_default_cursor_shape = 2
 custom_colors/font_color_focus = Color( 0.14902, 0.211765, 0.176471, 1 )
 custom_colors/font_color = Color( 0.14902, 0.211765, 0.176471, 1 )
@@ -95,7 +97,7 @@ custom_fonts/font = SubResource( 3 )
 custom_styles/hover = SubResource( 4 )
 custom_styles/focus = SubResource( 5 )
 custom_styles/normal = SubResource( 5 )
-text = " Options "
+text = "Options"
 
 [node name="Authors" type="Label" parent="."]
 margin_left = 14.0
