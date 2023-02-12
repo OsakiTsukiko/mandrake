@@ -123,7 +123,8 @@ func create_lights() -> void:
 
 func _animation_open_done(params: Array) -> void:
 	player.not_occupied = true
-	SoundManager.play_level_music(1)
+	if Gamestate.last_level != 1:
+		SoundManager.play_level_music(1)
 
 func _animation_close_done(params: Array) -> void:
 	if (params[0] == "REGRESS_TO_PREVIOUS_LEVEL"):
