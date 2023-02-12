@@ -63,7 +63,7 @@ var skills = {
 			0,
 			Vector2.ZERO,
 			Vector2.ZERO,
-			Vector2(25, 100),
+			Vector2(75, 150),
 			10,
 			false
 		)
@@ -91,7 +91,7 @@ var skills = {
 			"Killer Scream",
 			1,
 			Vector2.ZERO,
-			Vector2(75, 150),
+			Vector2(100, 175),
 			Vector2.ZERO,
 			30,
 			false
