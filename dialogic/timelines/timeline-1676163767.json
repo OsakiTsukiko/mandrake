@@ -1,0 +1,25 @@
+{
+	"events": [
+		{
+			"event_id": "dialogic_024",
+			"set_theme": "theme-1675508029.cfg"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[color=#cd5c5c][shake rate=10 level=10]WHO DARES WAKE ME UP FROM MY SLUMBER! KILLING SOO MANY OF MY CHILDREN![/shake][/color]"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[color=#cd5c5c][shake rate=10 level=10]FOR THIS SIN, YOU SHALL PAY WITH YOUR LIFE![/shake][/color]"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1676163767.json",
+		"name": "lvl_2_boss"
+	}
+}

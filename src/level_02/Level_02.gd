@@ -72,11 +72,24 @@ func _player_moved(pos: Vector2) -> void:
 				0,
 				mob_id
 			)
+	if (action == Utils.ACTIONS_ENUM.ENTER_BOSS_ROOM):
+		player.not_occupied = false
+		var dialogue = Dialogic.start("lvl_2_boss")
+		add_child(dialogue)
+		dialogue.connect("timeline_end", self, "_end_dialogue", [dialogue])
 
 func _end_dialogue(timeline_name: String, node: Node):
 	node.queue_free()
 	if (timeline_name == "lvl_2_sign"):
 		player.not_occupied = true
+	if (timeline_name == "lvl_2_boss"):
+		player.not_occupied = true
+		Gamestate.load_arena(
+			level_id,
+			player.coord,
+			1,
+			0
+		)
 
 func create_lights() -> void:
 	var lightingtilemap_rect = lighting_tilemap.get_used_rect()
