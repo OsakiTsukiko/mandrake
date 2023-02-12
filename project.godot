@@ -102,9 +102,9 @@ default_bus_layout="res://src/sound_manager/default_bus_layout.tres"
 
 [autoload]
 
+PlayerManager="*res://src/player_manager.gd"
 Gamestate="*res://src/gamestate.gd"
 AssetManager="*res://src/asset_manager.gd"
-PlayerManager="*res://src/player_manager.gd"
 SoundManager="*res://src/sound_manager/SoundManager.tscn"
 
 [display]

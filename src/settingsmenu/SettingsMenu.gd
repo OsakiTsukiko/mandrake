@@ -3,10 +3,6 @@ extends Control
 onready var music_slider = $Panel/MarginContainer/TabContainer/Audio/MarginContainer/GridContainer/MusicSLIDER
 onready var sfx_slider = $Panel/MarginContainer/TabContainer/Audio/MarginContainer/GridContainer/SoundSLIDER
 
-func _ready():
-	pass
-
-
 func _on_BackButton_pressed():
 	SoundManager.play_menu_click()
 	Gamestate.load_main_menu()

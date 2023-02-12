@@ -1,5 +1,6 @@
 extends Node
 
+var timer: Node
 var health: int = 100
 
 var hp: Dictionary = {
@@ -27,6 +28,56 @@ var ak: Dictionary = {
 var sp: Dictionary = {
 	"points": 0
 }
+
+var last_level: int = -1
+
+func _ready() -> void:
+	var save = Utils.load_save("mandrake")
+	print(save)
+	if (save != null):
+		if (save.has("points")):
+			hp.points = save.points[0]
+			mr.points = save.points[1]
+			def.points = save.points[2]
+			ak.points = save.points[3]
+			sp.points = save.points[4]
+		if (save.has("health")):
+			health = save.health
+		if (save.has("defense") && save.has("attack")):
+			load_skills(save.defense, save.attack)
+		if (save.has("has_book")):
+			Gamestate.state.has_book = save.has_book
+			Gamestate.state.first_time_dwarf = !save.has_book
+		if (save.has("level")):
+#			if (save.level == 0):
+#				Gamestate.load_level(0, Vector2(18, 21))
+#			if (save.level == 1):
+#				Gamestate.load_level(1, Vector2(32, 29))
+			last_level = save.level
+	
+	timer = Timer.new()
+	timer.wait_time = 1.0
+	timer.autostart = true
+	timer.connect("timeout", self, "_timeout")
+	self.add_child(timer)
+
+func _timeout():
+	var save = save_game_state()
+	Utils.save(save, "mandrake")
+
+func save_game_state():
+	var save = {}
+	save.points = [hp.points, mr.points, def.points, ak.points, sp.points]
+	save.health = health
+	save.defense = []
+	for def in skills.defense:
+		save.defense.push_back(def.unlocked)
+	save.attack = []
+	for def in skills.attack:
+		save.attack.push_back(def.unlocked)
+	save.has_book = Gamestate.state.has_book
+	save.level = last_level
+	return save
 
 func death_reset() -> void:
 	health = 100
@@ -63,7 +114,7 @@ var skills = {
 			0,
 			Vector2.ZERO,
 			Vector2.ZERO,
-			Vector2(25, 100),
+			Vector2(75, 150),
 			10,
 			false
 		)
@@ -91,7 +142,7 @@ var skills = {
 			"Killer Scream",
 			1,
 			Vector2.ZERO,
-			Vector2(75, 150),
+			Vector2(100, 175),
 			Vector2.ZERO,
 			30,
 			false

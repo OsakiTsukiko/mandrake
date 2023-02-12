@@ -6,8 +6,12 @@ onready var transition_screen = $CanvasLayer/TransitionScreen
 
 onready var collision_tilemap = $CollisionTileMap
 onready var action_tilemap = $ActionTileMap
+onready var grass_tilemap = $Grass
 
 onready var book = $BOOK_CONT/SkillMenu
+onready var particle_node =$ParticleNode
+
+var gp_scene = load("res://src/level_01/grass_particles.tscn")
 
 var level_id = 0
 
@@ -18,6 +22,17 @@ func _ready() -> void:
 	transition_screen.connect("animation_open_done", self, "_animation_open_done")
 	transition_screen.play_open_animation(player.get_on_screen_ratio())
 	player.not_occupied = false
+	PlayerManager.last_level = 0
+
+	if (Gamestate.settings.particles):
+		var gtm_size = grass_tilemap.get_used_rect()
+		for i in range(gtm_size.size.x):
+			for j in range(gtm_size.size.y):
+				var cell_coord = Vector2(i + gtm_size.position.x, j + gtm_size.position.y)
+				if (grass_tilemap.get_cell(cell_coord.x, cell_coord.y) != -1):
+					var gpart: Node = gp_scene.instance()
+					gpart.position = cell_coord * 16 + Vector2(8, 8)
+					particle_node.add_child(gpart)
 
 func _spawn_coords(coords: Vector2):
 	player.teleport(coords)
