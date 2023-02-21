@@ -19,11 +19,27 @@ onready var main_menu_bg = $MainMenuBG
 onready var level1_bg = $Level1BG
 onready var level2_bg = $Level2BG
 
+func _ready():
+	ready_audio()
+	main_menu_bg.play()
+
+func ready_audio():
+	AudioServer.set_bus_volume_db(music_bus, music_volume)
+	AudioServer.set_bus_volume_db(sfx_bus, sfx_volume)
+	AudioServer.set_bus_mute(music_bus, !music_toggle)
+	AudioServer.set_bus_mute(sfx_bus, !sfx_toggle)
+
+func stop_all_music():
+	for i in get_children():
+		if(i.bus == "Music"):
+			i.stop()
+
 func play_menu_click():
 	if sfx_toggle:
 		menu_click_sound.play()
 
 func play_level_music(lvl_id: int):
+	stop_all_music()
 	if lvl_id == 0:
 		level1_bg.play()
 	if lvl_id == 1:
@@ -51,5 +67,3 @@ func toggle_sfx():
 	sfx_toggle = !sfx_toggle
 	AudioServer.set_bus_mute(sfx_bus, !sfx_toggle)
 
-func _ready():
-	main_menu_bg.play()

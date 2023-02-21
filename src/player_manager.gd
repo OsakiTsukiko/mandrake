@@ -54,7 +54,14 @@ func _ready() -> void:
 #			if (save.level == 1):
 #				Gamestate.load_level(1, Vector2(32, 29))
 			last_level = save.level
-	
+		if (save.has("music_volume")):
+			SoundManager.music_volume = save.music_volume
+		if (save.has("music_toggle")):
+			SoundManager.music_toggle = save.music_toggle
+		if (save.has("sfx_volume")):
+			SoundManager.sfx_volume = save.sfx_volume
+		if (save.has("sfx_toggle")):
+			SoundManager.sfx_toggle = save.sfx_toggle
 	timer = Timer.new()
 	timer.wait_time = 1.0
 	timer.autostart = true
@@ -77,6 +84,10 @@ func save_game_state():
 		save.attack.push_back(def.unlocked)
 	save.has_book = Gamestate.state.has_book
 	save.level = last_level
+	save.music_volume = SoundManager.music_volume
+	save.music_toggle = SoundManager.music_toggle
+	save.sfx_volume = SoundManager.sfx_volume
+	save.sfx_toggle = SoundManager.sfx_toggle
 	return save
 
 func death_reset() -> void:
